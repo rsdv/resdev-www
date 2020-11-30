@@ -1,18 +1,42 @@
+/**
+ *
+ * index.js
+ *
+ * Entry point of the application
+ */
+
+import 'sanitize.css/sanitize.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import store from './app/store';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+
+import basename from './utils/basename';
+
+// Import root component
+import App from './containers/App';
+
+import Fonts from "./components/Fonts";
+
+// Import Providers
+
+// Redux store
+import store from './store';
+
+const MOUNT_NODE = document.getElementById('root') || document.createElement('div');
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Fonts />
+      <BrowserRouter basename={basename}>
+        <App store={store} />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  MOUNT_NODE
 );
 
 // If you want your app to work offline and load faster, you can change
