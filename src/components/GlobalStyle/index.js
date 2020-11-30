@@ -30,6 +30,21 @@ const GlobalStyle = createGlobalStyle`
   a {
     background-color: transparent;
   }
+  
+  li {
+    border-bottom: solid 0.5px rgba(155,155,155,0.4);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 0px 2px 0px;
+    div {
+      height: 21px;
+    }
+  }
+  
+  ul {
+    padding: 8px 0px 8px 0px;
+  }
+  
 `
 
 export default GlobalStyle;
