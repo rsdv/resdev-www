@@ -6,7 +6,8 @@ const Wrapper = styled.div`
   .related-title {
     padding-top: 6px;
     font-size: 12px;
-    font-weight: ${props => props.theme.main.fontWeights.semiBold};
+    font-weight: ${props => props.theme.main.fontWeights.bold};
+    color: ${props => props.theme.main.colors.text.primary};
   }
 `
 

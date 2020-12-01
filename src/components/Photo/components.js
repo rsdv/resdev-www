@@ -24,6 +24,7 @@ const Image = styled.img`
   // Flatten it out and slightly opace-it
   &.selected {
     opacity: 0.5;
+    border: 0.5px solid #979797;
     box-shadow: initial !important;
   }
 `

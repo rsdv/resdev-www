@@ -41,6 +41,10 @@ const colors = {
     'link-color': '#919bae',
     'title-color': '#5b626f',
   },
+  text: {
+    primary: '#4A4A4A',
+    secondary: '#9B9B9B'
+  },
   resdev: {
     'gray-light': '#eff3f6',
     gray: '#535f76',
