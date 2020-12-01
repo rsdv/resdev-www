@@ -7,11 +7,17 @@
 
 import React from 'react'
 
-import PhotoGallery from "../../components/PhotoGallery";
+import marked from 'marked'
 
 import Wrapper from "./Wrapper";
 import { Photos, Details } from './Content'
+
+import Markdown from "../../components/Markdown";
+import LoadingIndicatorPage from "../LoadingIndicatorPage";
+import PhotoGallery from "../../components/PhotoGallery";
 import { Specification, Downloads, RelatedGroup, ColourGroup, Header, Section } from '../../components/ProductDetail'
+
+// Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et leo lacinia, porttitor massa et, accumsan diam. Maecenas bibendum nisi in hendrerit rutrum. Praesent tempor dapibus odio, eu dictum nisi ultrices a. Sed feugiat congue tortor non pretium. Integer mollis, risus vel egestas condimentum, lectus urna fermentum arcu, varius posuere massa mauris ut sem. Praesent est mauris, pulvinar ac lorem at, tincidunt vulputate ipsum.
 
 const photos = [
   {
@@ -63,11 +69,18 @@ const colours = [
 class ProductPage extends React.Component {
 
   state = {
-
+    error: null,
+    loading: true,
+    product: null
   }
 
   componentDidMount() {
-
+    // Not final
+    // this.setState({ error: new Error('WHat is going on ere') })
+    // fetch('http://localhost:1337/products/5')
+    //   .then((res) => res.json())
+    //   .then((data) => { this.setState({ loading: false, product: data }) })
+    //   .catch((err) => { this.setState({ loading: false, error: err }) })
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -75,20 +88,30 @@ class ProductPage extends React.Component {
   }
 
   render() {
+    if (this.state.loading || !!this.state.error) return <LoadingIndicatorPage error={this.state.error} />
+
+    const {
+      Title,
+      description,
+      tags,
+      colours,
+      specification
+    } = this.state.product
+
     return (
       <Wrapper>
         <Photos>
           <PhotoGallery photos={photos} />
         </Photos>
         <Details>
-          <Header title={"Product Name"} tags={['Pumadur', 'Building Materials']}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et leo lacinia, porttitor massa et, accumsan diam. Maecenas bibendum nisi in hendrerit rutrum. Praesent tempor dapibus odio, eu dictum nisi ultrices a. Sed feugiat congue tortor non pretium. Integer mollis, risus vel egestas condimentum, lectus urna fermentum arcu, varius posuere massa mauris ut sem. Praesent est mauris, pulvinar ac lorem at, tincidunt vulputate ipsum.
+          <Header title={Title} tags={tags.map((el) => el.tag)}>
+            <Markdown dangerouslySetInnerHTML={{ __html: marked(description) }} />
           </Header>
           <Section title={'Colours'}>
-            <ColourGroup colours={colours} />
+            <ColourGroup colours={colours.map((el) => el.colour)} />
           </Section>
           <Section title={"Specification"}>
-            <Specification spec={spec} />
+            <Specification spec={specification} />
           </Section>
           <Section title={"Downloads"}>
             <Downloads downloads={downloads} />

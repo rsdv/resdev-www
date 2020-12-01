@@ -41,12 +41,4 @@ const Text = styled.div`
   }
 `
 
-// Just overwrite any default styles in here, mostly here for links and
-// subscripts/superscripts
-const Markdown = styled.div`
-  p {
-    margin: 0;
-  }
-`
-
-export { List, ListItem, Content, Text, Markdown }
+export { List, ListItem, Content, Text }

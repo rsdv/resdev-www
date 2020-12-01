@@ -7,7 +7,8 @@ import PropTypes from 'prop-types'
 
 import marked from 'marked'
 
-import { List, ListItem, Content, Text, Markdown } from './components'
+import Markdown from "../../Markdown";
+import { List, ListItem, Content, Text } from './components'
 
 const Specification = (props) => {
   const {
