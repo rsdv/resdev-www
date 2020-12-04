@@ -12,7 +12,8 @@ import Circle from "./Circle";
 const ColourRing = ({ color, style, ...rest }) => <Circle style={{...style, backgroundColor: color}} {...rest} />
 
 ColourRing.propTypes = {
-  color: PropTypes.string.isRequired
+  color: PropTypes.string.isRequired,
+  'data-tip': PropTypes.string
 }
 
 export default ColourRing

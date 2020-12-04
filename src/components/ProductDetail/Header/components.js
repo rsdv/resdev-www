@@ -4,6 +4,8 @@ const Title = styled.h1`
   // Overwrite the one set in sanitize.css
   margin: 16px 0px 0px 0px;
   font-size: 36px;
+  border-left: 8px solid ${props => props.theme.main.colors.resdev.red};
+  padding-left: 8px;
   font-weight: ${props => props.theme.main.fontWeights.black};
   color: ${props => props.theme.main.colors.text.primary};
   

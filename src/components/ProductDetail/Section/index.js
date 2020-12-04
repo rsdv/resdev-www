@@ -5,11 +5,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Section as Wrapper, SectionHeader as Header, SectionBody as Content } from './components'
+import { Wrapper, Title, Content } from './components'
 
 const Section = ({ title, children, ...rest }) => (
   <Wrapper {...rest}>
-    <Header>{title}</Header>
+    <Title>{title}</Title>
     <Content>{children}</Content>
   </Wrapper>
 )

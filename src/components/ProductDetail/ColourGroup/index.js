@@ -4,6 +4,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactTooltip from 'react-tooltip'
 
 import ColourRing from "../../ColourRing";
 
@@ -11,14 +12,18 @@ import { Group } from "./components";
 
 const ColourGroup = (props) => (
   <Group>
-    {props.colours.map((colour, idx) => (
-      <ColourRing color={colour} key={idx} />
+    <ReactTooltip />
+    {props.colours.map(({colour, name}, idx) => (
+      <ColourRing data-tip={name} color={colour} key={idx} />
     ))}
   </Group>
 )
 
 ColourGroup.propTypes = {
-  colours: PropTypes.arrayOf(PropTypes.string).isRequired
+  colours: PropTypes.arrayOf(PropTypes.shape({
+    colour: PropTypes.string.isRequired,
+    name: PropTypes.string
+  })).isRequired
 }
 
 export default ColourGroup

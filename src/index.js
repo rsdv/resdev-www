@@ -7,18 +7,21 @@
 
 import 'sanitize.css/sanitize.css';
 
+// Third party css library needed
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
+import Fonts from "./components/Fonts";
+
 import basename from './utils/basename';
 
 // Import root component
 import App from './containers/App';
-
-import Fonts from "./components/Fonts";
 
 // Import Providers
 

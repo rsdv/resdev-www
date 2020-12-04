@@ -9,12 +9,15 @@ function App(props) {
   // Pass analytics for initialising the page
   // useEffect(() => { }, [])
 
+  console.log(window.location.origin)
+
   return (
     <Theme>
       <GlobalStyle />
-      <ProductPage />
-      {/*<Switch>*/}
-      {/*</Switch>*/}
+      <Switch>
+        <Route path='/products/:slug' render={props => <ProductPage {...props} />}/>
+        {/*<Route path='*' render={props => <NotFound history={props.history} /> } />*/}
+      </Switch>
     </Theme>
   )
 }
