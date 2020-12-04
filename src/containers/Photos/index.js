@@ -12,27 +12,18 @@ import Wrapper from "./Wrapper";
 
 import PhotoGallery from "../../components/PhotoGallery";
 
-const photos = [
-  {
-    src: 'https://www.designingbuildings.co.uk/w/images/c/cd/Terrazzo.jpg',
-    alt: 'Terrazzo - Main'
-  },
-  {
-    src: 'https://i2.wp.com/theconstructor.org/wp-content/uploads/2010/10/How-to-Lay-In-Situ-Terrazzo-Marble-Chips-Flooring-829x550.jpg',
-    alt: 'Terrazzo - Marble'
-  },
-  {
-    src: 'https://www.atrafloor.com/app/uploads/2018/05/orange-flicks-terrazzo-Swatch-Website.jpg',
-    alt: 'Terrazzo - Orange'
-  }
-]
-
 const Photos = (props) => (
   <Wrapper>
-    <PhotoGallery photos={photos} />
+    <PhotoGallery photos={props.photos} />
   </Wrapper>
 )
 
-// TODO: Prop types
+Photos.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    alt: PropTypes.string,
+    src: PropTypes.string.isRequired
+  })).isRequired
+}
 
 export default Photos

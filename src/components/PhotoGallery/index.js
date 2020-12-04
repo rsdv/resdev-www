@@ -43,7 +43,7 @@ const PhotoGallery = (props) => {
     <Wrapper>
       <Grid>
         {photos.map(({src, alt}, idx) => (
-          <Selector key={idx}>
+          <Selector key={src._id || idx}>
             <Photo className={clsx((idx === activeIndex && 'selected'))} src={src} alt={alt}
                    imgProps={{'data-index': idx}} onClick={onClick}/>
           </Selector>

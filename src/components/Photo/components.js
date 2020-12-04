@@ -19,14 +19,6 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   box-shadow: -1px 0px 4px rgba(0,0,0,0.2);
-  
-  // Make it look like it's selected
-  // Flatten it out and slightly opace-it
-  &.selected {
-    opacity: 0.5;
-    border: 0.5px solid #979797;
-    box-shadow: initial !important;
-  }
 `
 
 export { Wrapper, Image }

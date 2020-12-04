@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 class HTTPError extends Error {
 
@@ -15,7 +15,8 @@ const useFetch = ({ match: { params } }) => {
   const [state, setState] = useState({
     error: false,
     isLoading: true,
-    product: null
+    product: null,
+    photos: []
   })
 
   useEffect(() => {
@@ -34,12 +35,23 @@ const useFetch = ({ match: { params } }) => {
         }
 
         // Return for a 404 page
-        if (!product) return setState({ isLoading: false, error: true, product: null })
+        if (!product) return setState({ isLoading: false, error: true, product: null, photos: [] })
 
-        setState({ isLoading: false, product, error: false })
+        // Overwrite the photos object to be more React friendly
+        const photos = product.photos.reduce((photos, curr) => {
+          photos.push({
+            _id: curr._id,
+            alt: curr.alternativeText,
+            src: `http://cms.localhost${curr.url}`
+          })
+
+          return photos
+        }, [])
+
+        setState({ isLoading: false, product, photos, error: false })
       } catch (err) {
         if (isMounted.current) {
-          setState({ isLoading: false, error: true, product: null });
+          setState({ isLoading: false, error: true, product: null, photos: [] });
         }
       }
     }

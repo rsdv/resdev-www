@@ -25,6 +25,19 @@ const Selector = styled.div`
   @media (min-width: ${props => props.theme.main.sizes.width.sm}) {
     padding: 0px 16px 16px 0px;
   }
+  
+  & img {
+    cursor: pointer;
+  }
+  
+  // Make it look like it's selected
+  // Flatten it out and slightly opace-it
+  & img.selected {
+    cursor: default;
+    opacity: 0.5;
+    border: 0.5px solid #979797;
+    box-shadow: initial !important;
+  }
 `
 
 export { Grid, Main, Selector }

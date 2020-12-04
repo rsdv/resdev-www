@@ -18,7 +18,7 @@ import NotFound from "../../components/NotFound";
 import LoadingIndicatorPage from "../LoadingIndicatorPage";
 
 const ProductPage = (props) => {
-  const { error, isLoading, product } = useFetch(props);
+  const { error, isLoading, product, photos } = useFetch(props);
 
   if (isLoading) {
     return <LoadingIndicatorPage />
@@ -30,7 +30,7 @@ const ProductPage = (props) => {
 
   return (
     <Wrapper>
-      <Photos />
+      <Photos photos={photos}/>
       <Details product={product} />
     </Wrapper>
   )

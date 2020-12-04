@@ -12,8 +12,11 @@ import marked from 'marked'
 
 import Wrapper from "./Wrapper";
 
+import Theme from "../Theme";
 import Markdown from "../../components/Markdown";
 import { Specification, Downloads, RelatedGroup, ColourGroup, Header, Section } from '../../components/ProductDetail'
+
+import theme, { pumaflow, pumathane, pumadur } from '../../themes'
 
 const downloads = [
   { value: 'Product Datasheet' },
@@ -34,23 +37,37 @@ const Details = (props) => {
     specification
   } = props.product
 
+  // Pretty shit but maybe works
+  const getTheme = (tags) => {
+    const keys = ['Pumadur', 'Pumathane', 'Pumaflow']
+
+    switch (tags[tags.findIndex((el) => keys.indexOf(el.tag.toLowerCase()))].tag) {
+      case 'Pumadur': return pumadur()
+      case 'Pumathane': return pumathane()
+      case 'Pumaflow': return pumaflow()
+      default: return theme
+    }
+  }
+
   return (
     <Wrapper>
-      <Header title={Title} tags={tags.map((el) => el.tag)}>
-        <Markdown dangerouslySetInnerHTML={{ __html: marked(description) }} />
-      </Header>
-      <Section title={'Colours'}>
-        <ColourGroup colours={colours.map((el) => ({ colour: el.colour, name: el.name }))} />
-      </Section>
-      <Section title={"Specification"}>
-        <Specification spec={specification} />
-      </Section>
-      <Section title={"Downloads"}>
-        <Downloads downloads={downloads} />
-      </Section>
-      <Section title={"Related Products"}>
-        <RelatedGroup related={related} />
-      </Section>
+      <Theme value={getTheme(tags)}>
+        <Header title={Title} tags={tags.map((el) => el.tag)}>
+          <Markdown dangerouslySetInnerHTML={{ __html: marked(description) }} />
+        </Header>
+        {!!colours && colours.length > 0 ? <Section title={'Colours'}>
+          <ColourGroup colours={colours.map((el) => ({ colour: el.colour, name: el.name }))} />
+        </Section> : null }
+        {!!specification && specification.length > 0 ? <Section title={"Specification"}>
+          <Specification spec={specification} />
+        </Section> : null }
+        <Section title={"Downloads"}>
+          <Downloads downloads={downloads} />
+        </Section>
+        <Section title={"Related Products"}>
+          <RelatedGroup related={related} />
+        </Section>
+      </Theme>
     </Wrapper>
   )
 }
