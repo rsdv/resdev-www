@@ -20,6 +20,8 @@ import LoadingIndicatorPage from "../LoadingIndicatorPage";
 const ProductPage = (props) => {
   const { error, isLoading, product, photos } = useFetch(props);
 
+  console.log('Here')
+
   if (isLoading) {
     return <LoadingIndicatorPage />
   }

@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 class HTTPError extends Error {
 
@@ -61,7 +61,7 @@ const useFetch = ({ match: { params } }) => {
     return () => {
       isMounted.current = false;
     };
-  }, [])
+  }, [params])
 
   return state;
 }

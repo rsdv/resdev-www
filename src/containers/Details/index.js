@@ -16,6 +16,7 @@ import Theme from "../Theme";
 import Markdown from "../../components/Markdown";
 import { Specification, Downloads, RelatedGroup, ColourGroup, Header, Section } from '../../components/ProductDetail'
 
+import downloadMap from "../../utils/downloads-map";
 import theme, { pumaflow, pumathane, pumadur } from '../../themes'
 
 const downloads = [
@@ -34,7 +35,8 @@ const Details = (props) => {
     description,
     tags,
     colours,
-    specification
+    specification,
+    datasheets
   } = props.product
 
   // Pretty shit but maybe works
@@ -61,9 +63,9 @@ const Details = (props) => {
         {!!specification && specification.length > 0 ? <Section title={"Specification"}>
           <Specification spec={specification} />
         </Section> : null }
-        <Section title={"Downloads"}>
-          <Downloads downloads={downloads} />
-        </Section>
+        {!!downloads && downloads.length > 0 ? <Section title={"Downloads"}>
+          <Downloads downloads={datasheets.map(downloadMap)} />
+        </Section> : null }
         <Section title={"Related Products"}>
           <RelatedGroup related={related} />
         </Section>
@@ -83,7 +85,8 @@ Details.propTypes = {
       colour: PropTypes.string,
       name: PropTypes.string
     })),
-    specification: PropTypes.array
+    specification: PropTypes.array,
+    datasheets: PropTypes.array
   }).isRequired
 }
 

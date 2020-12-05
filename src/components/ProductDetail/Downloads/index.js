@@ -14,9 +14,11 @@ import { Content, Label } from "./components";
 
 const Downloads = (props) => (
   <Wrapper>
-    {props.downloads.map(({ _, value }, idx) => (
-      <Content key={idx}>
-        <Download style={{ width: '40px', height: '40px' }} width={'25px'} height={'35px'}/>
+    {props.downloads.map(({ _id, href, value }, idx) => (
+      <Content key={_id || idx}>
+        <a href={href} target={'_blank'} rel={"noreferrer"}>
+          <Download style={{ width: '40px', height: '40px' }} width={'25px'} height={'35px'}/>
+        </a>
         <Label>{value}</Label>
       </Content>
     ))}
@@ -25,7 +27,8 @@ const Downloads = (props) => (
 
 Downloads.propTypes = {
   downloads: PropTypes.arrayOf(PropTypes.shape({
-    src: PropTypes.string,
+    _id: PropTypes.string.isRequired,
+    href: PropTypes.string,
     value: PropTypes.string.isRequired
   })).isRequired
 }

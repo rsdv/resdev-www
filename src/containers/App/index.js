@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Theme from "../Theme";
 import ProductPage from "../ProductPage";
 import GlobalStyle from "../../components/GlobalStyle";
+import NotFoundPage from "../NotFoundPage";
 
 function App(props) {
   // Pass analytics for initialising the page
@@ -15,8 +16,8 @@ function App(props) {
     <Theme>
       <GlobalStyle />
       <Switch>
-        <Route path='/products/:slug' render={props => <ProductPage {...props} />}/>
-        {/*<Route path='*' render={props => <NotFound history={props.history} /> } />*/}
+        <Route path='/products/:slug' render={props => <ProductPage {...props} />} />
+        <Route path='' component={NotFoundPage} />
       </Switch>
     </Theme>
   )
