@@ -1,0 +1,14 @@
+version: '1.0'
+
+services:
+  site:
+    name: site-www
+    dockerfile: .
+    default_tag: development
+    rm: true
+#    build_arguments:
+#      - REACT_APP_BASE_URL=uri
+#      - REACT_APP_GOOGLE_ANALYTICS=analytics
+
+registry:
+  docker:
