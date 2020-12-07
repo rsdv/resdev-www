@@ -1,10 +1,15 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 // For making the images 100% square
 const Wrapper = styled.div`
   width: 100%;
+  // For keeping min width the same as height
   padding-top: 100%;
   position: relative;
+ 
+  ${props => props.type === 'fixed-width' ? css`
+    height: 100%;
+  ` : null }
 `
 
 const Image = styled.img`

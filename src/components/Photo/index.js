@@ -11,7 +11,7 @@ const Photo = (props) => {
     className,
     src,
     srcSet,
-    size,
+    type,
     style,
     index,
     onClick,
@@ -21,8 +21,8 @@ const Photo = (props) => {
 
   // Might not be right but will do for now
   return (
-    <Wrapper style={{...style}} {...rest}>
-      <Image alt={alt} className={clsx(className)} src={src} srcSet={srcSet} onClick={onClick} index={index} {...imgProps} >
+    <Wrapper style={{...style}} type={type} {...rest} >
+      <Image alt={alt} className={clsx(className)} type={type} src={src} srcSet={srcSet} onClick={onClick} index={index} {...imgProps} >
         {children}
       </Image>
     </Wrapper>
@@ -31,10 +31,7 @@ const Photo = (props) => {
 }
 
 Photo.defaultProps = {
-  size: {
-    width: '150px',
-    height: '150px'
-  }
+  type: 'square'
 }
 
 Photo.propTypes = {
@@ -43,10 +40,7 @@ Photo.propTypes = {
   className: PropTypes.string,
   src: PropTypes.string,
   srcSet: PropTypes.string,
-  size: PropTypes.exact({
-    width: PropTypes.string.isRequired,
-    height: PropTypes.string.isRequired
-  }),
+  type: PropTypes.oneOf(['square', 'fixed-width']),
   index: PropTypes.number,
   onClick: PropTypes.func,
   imgProps: PropTypes.object

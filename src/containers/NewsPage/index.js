@@ -8,38 +8,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import useFetch from "./hooks";
 import Wrapper from "./Wrapper";
+import { Sidebar, Content } from './Content'
 
-import Photos from "../Photos";
-import Details from "../Details";
 import NotFound from "../../components/NotFound";
 import LoadingIndicatorPage from "../LoadingIndicatorPage";
+import Photo from "../../components/Photo";
 
-const ProductPage = (props) => {
-  const { error, isLoading, product, photos } = useFetch(props);
+import ArticlePreview from "../../components/ArticlePreview";
 
-  if (isLoading) {
-    return <LoadingIndicatorPage />
-  }
-
-  if (error) {
-    return <NotFound history={props.history} />
-  }
-
+const NewsPage = (props) => {
   return (
     <Wrapper>
-      <Photos photos={photos}/>
-      <Details product={product} />
+      <ArticlePreview />
     </Wrapper>
   )
 }
 
-ProductPage.propTypes = {
+NewsPage.propTypes = {
   history: PropTypes.object,
   match: PropTypes.shape({
     params: PropTypes.object
   })
 }
 
-export default ProductPage
+export default NewsPage
