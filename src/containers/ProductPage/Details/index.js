@@ -12,17 +12,12 @@ import marked from 'marked'
 
 import Wrapper from "./Wrapper";
 
-import Theme from "../Theme";
-import Markdown from "../../components/Markdown";
-import { Specification, Downloads, RelatedGroup, ColourGroup, Header, Section } from '../../components/ProductDetail'
+import Theme from "../../Theme";
+import Markdown from "../../../components/Markdown";
+import { Specification, Downloads, RelatedGroup, ColourGroup, Header, Section } from '../../../components/ProductDetail'
 
-import downloadMap from "../../utils/downloads-map";
-import theme, { pumaflow, pumathane, pumadur } from '../../themes'
-
-const downloads = [
-  { value: 'Product Datasheet' },
-  { value: "Declaration of Performance"}
-]
+import downloadMap from "../../../utils/downloads-map";
+import theme, { pumaflow, pumathane, pumadur } from '../../../themes'
 
 const related = [
   { src: 'https://www.atrafloor.com/app/uploads/2018/05/orange-flicks-terrazzo-Swatch-Website.jpg', title: 'Product Name' },
@@ -63,7 +58,7 @@ const Details = (props) => {
         {!!specification && specification.length > 0 ? <Section title={"Specification"}>
           <Specification spec={specification} />
         </Section> : null }
-        {!!downloads && downloads.length > 0 ? <Section title={"Downloads"}>
+        {!!datasheets && datasheets.length > 0 ? <Section title={"Downloads"}>
           <Downloads downloads={datasheets.map(downloadMap)} />
         </Section> : null }
         <Section title={"Related Products"}>

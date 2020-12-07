@@ -11,8 +11,8 @@ import PropTypes from 'prop-types'
 import useFetch from "./hooks";
 import Wrapper from "./Wrapper";
 
-import Photos from "../Photos";
-import Details from "../Details";
+import Photos from "./Photos";
+import Details from "./Details";
 import NotFound from "../../components/NotFound";
 import LoadingIndicatorPage from "../LoadingIndicatorPage";
 

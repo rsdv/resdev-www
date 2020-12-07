@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   margin-right: 24px;
   text-align: left;
   line-height: 20px;
-  max-width: 680px;
+  min-width: 0px;
 `
 
 export default Wrapper
