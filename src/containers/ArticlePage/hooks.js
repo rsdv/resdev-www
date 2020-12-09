@@ -1,28 +1,38 @@
+/**
+ * Fetch the article info
+ * */
+
 import { useEffect, useRef, useState } from 'react';
 
 import { HTTPError } from '../../utils/error'
 
-const useFetch = () => {
+const useFetch = ({ match: { params } }) => {
   const isMounted = useRef(true);
   const [state, setState] = useState({
     error: false,
     isLoading: true,
-    popular: []
+    article: null
   })
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let response = await fetch('http://cms.localhost/news-page')
+        const response = await fetch('http://cms.localhost/articles?slug=' + params.slug)
         if (response.status !== 200) throw new HTTPError(`HTTPError [${response.status}]`, response.status, response.statusText)
 
-        const data = await response.json()
-        const articles = data.articles.reduce((articles, curr) => {
+        let data = await response.json()
+
+        // Overkill but just in-case we do get more than one
+        //
+        // Will look at a custom controller for the future to
+        // replace this
+        const articles = data.reduce((articles, curr) => {
           articles.push({
             _id: curr._id,
             author: 'Harry Wright',
+            article: curr.article,
             title: curr.title,
-            desc: curr.description || curr.article.split('\n')[0],
+            description: curr.description || curr.article.split('\n')[0],
             slug: curr.slug,
             photo: curr.images[0],
             published: new Date(curr.published_at),
@@ -32,11 +42,13 @@ const useFetch = () => {
           return articles
         }, [])
 
-        // console.log(data, articles)
-        setState({ isLoading: false, popular: articles, error: false })
+        const article = articles[0]
+        if (!article) return setState({ isLoading: false, error: true, article: null });
+
+        setState({ isLoading: false, article, error: false })
       } catch (err) {
         if (isMounted.current) {
-          setState({ isLoading: false, error: true, popular: [] });
+          setState({ isLoading: false, error: true, article: null });
         }
       }
     }
@@ -46,7 +58,7 @@ const useFetch = () => {
     return () => {
       isMounted.current = false;
     };
-  }, [])
+  }, [params])
 
   return state;
 }

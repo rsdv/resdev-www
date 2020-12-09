@@ -6,28 +6,33 @@
  *
  * */
 
-import React from 'react'
+import React, { forwardRef } from 'react'
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 
 import Wrapper from "./Wrapper";
+import ArticleLink from "./ArticleLink";
 
-import { Description, Title, Meta, Author, Details, Divider } from "./components";
+import { Description, Title, Meta, Author, Details } from "./components";
 
 import Time from "../../Time";
 import ReadTime from "../../ReadTime";
+import DotDivider from "../../DotDivider";
 
 const Content = (props) => (
-  <Wrapper>
-    <Title>{props.article.title}</Title>
+  <Wrapper margin={props.margin}>
+    <Link to={`/news/${props.article.slug}`} component={ArticleLink}
+          InternalComponent={Title} value={props.article.title} />
     {props.description
-      ? <Description>{props.article.desc}</Description>
+      ? <Link to={`/news/${props.article.slug}`} component={ArticleLink}
+              InternalComponent={Description} value={props.article.desc} />
       : null
     }
     <Meta>
       <Author>{props.article.author} in {props.article.tags.join(', ')}</Author>
       <Details>
         <Time date={props.article.published}/>
-        <Divider />
+        <DotDivider />
         <ReadTime wordCount={props.article.word_count} />
       </Details>
     </Meta>
@@ -35,6 +40,7 @@ const Content = (props) => (
 )
 
 Content.defaultProps = {
+  margin: true,
   description: true
 }
 
@@ -48,7 +54,8 @@ Content.propTypes = {
     tags: PropTypes.array,
     word_count: PropTypes.number
   }).isRequired,
-  description: PropTypes.bool
+  description: PropTypes.bool,
+  margin: PropTypes.bool
 }
 
 export default Content

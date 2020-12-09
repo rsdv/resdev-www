@@ -1,10 +1,13 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Wrapper = styled.div`
-  margin-right: 24px;
   text-align: left;
   line-height: 20px;
   min-width: 0px;
+  
+  ${props => props.margin ? css`
+    margin-right: 24px;
+  ` : null }
 `
 
 export default Wrapper

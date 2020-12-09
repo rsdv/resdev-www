@@ -25,11 +25,12 @@ const ArticlePreview = (props) => {
   } = props
 
   const Wrapper = type === 'aside' ? WrapperDiv : WrapperArticle
+  const margin = type === 'default' ? !!article.photo : type !== 'aside'
 
   return (
     <Wrapper type={type}>
-      <Content description={type === 'default'} article={article} />
-      { type === 'default' ? <Image src={`http://cms.localhost${article.photo.url}`}/> : null }
+      <Content description={type === 'default'} article={article} margin={margin} />
+      { type === 'default' && article.photo ? <Image src={`http://cms.localhost${article.photo.url}`} slug={article.slug}/> : null }
     </Wrapper>
   )
 }

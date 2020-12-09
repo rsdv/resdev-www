@@ -1,14 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-class HTTPError extends Error {
-
-  constructor(message, status, code) {
-    super(message);
-
-    this.status = status
-    this.code = code
-  }
-}
+import { HTTPError } from '../../utils/error'
 
 const useFetch = ({ match: { params } }) => {
   const isMounted = useRef(true);

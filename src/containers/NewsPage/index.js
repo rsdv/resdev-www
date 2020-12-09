@@ -1,104 +1,43 @@
 /**
  *
- * Split both sides into separate containers
+ * NewsPage.js
  *
- * Have a built in ./src/components/{Side}/{Section}/{index,Wrapper,Content,components}.js
+ * Sidebar might just become the footer soon
+ *
  * */
-
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+
+import useFetch from "./hooks";
 
 import Wrapper from "./Wrapper";
 import { Sidebar, Content } from './Content'
 
+import LoadingIndicatorPage from "../LoadingIndicatorPage";
+
+import Popular from "../../components/Popular";
 import Articles from "../../components/Articles";
-import ArticlePreview from "../../components/ArticlePreview";
-import NewsSidebar from "../../components/NewsSidebar";
-
-class HTTPError extends Error {
-
-  constructor(message, status, code) {
-    super(message);
-
-    this.status = status
-    this.code = code
-  }
-}
+import NotFound from "../../components/NotFound";
 
 const NewsPage = (props) => {
-  const [articles, setArticles] = useState([])
-  const [popular, setPopular] = useState([])
-  const [error, setError] = useState(false)
+  const { error, isLoading, popular } = useFetch()
 
-  useEffect(() => {
-    const loadArticles = async () => {
+  // Skeleton elements would be better
+  if (isLoading) {
+    return <LoadingIndicatorPage />
+  }
 
-      try {
-        let response = await fetch('http://cms.localhost/articles')
-        if (response.status !== 200) throw new HTTPError(`HTTPError [${response.status}]`, response.status, response.statusText)
-
-        const data = await response.json()
-        const articles = data.reduce((articles, curr) => {
-          articles.push({
-            _id: curr._id,
-            author: 'Harry Wright',
-            title: curr.title,
-            desc: curr.description || curr.article.split('\n')[0],
-            slug: curr.slug,
-            photo: curr.images[0],
-            published: new Date(curr.published_at),
-            tags: curr.tags.map((el) => el.tag),
-            word_count: curr.word_count
-          })
-          return articles
-        }, [])
-
-        // console.log(data, articles)
-        setArticles(articles)
-      } catch (err) {
-        setError(true)
-      }
-    }
-
-    const loadPage = async () => {
-      try {
-        let response = await fetch('http://cms.localhost/news-page')
-        if (response.status !== 200) throw new HTTPError(`HTTPError [${response.status}]`, response.status, response.statusText)
-
-        const data = await response.json()
-        const articles = data.articles.reduce((articles, curr) => {
-          articles.push({
-            _id: curr._id,
-            author: 'Harry Wright',
-            title: curr.title,
-            desc: curr.description || curr.article.split('\n')[0],
-            slug: curr.slug,
-            photo: curr.images[0],
-            published: new Date(curr.published_at),
-            tags: curr.tags.map((el) => el.tag),
-            word_count: curr.word_count
-          })
-          return articles
-        }, [])
-
-        // console.log(data, articles)
-        setPopular(articles)
-      } catch (err) {
-        setError(true)
-      }
-    }
-
-    loadPage()
-    loadArticles()
-  }, [setArticles, setError, setPopular])
+  if (error) {
+    return <NotFound history={props.history} />
+  }
 
   return (
     <Wrapper>
       <Content>
-        <Articles articles={articles} />
+        <Articles />
       </Content>
       <Sidebar>
-        <NewsSidebar popular={popular}/>
+        <Popular popular={popular} />
       </Sidebar>
     </Wrapper>
   )

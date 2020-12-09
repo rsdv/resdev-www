@@ -1,5 +1,11 @@
 /**
- * This could end up being re-intergrated into NewsPage
+ *
+ * Popular.js
+ *
+ * Ordered list of popular articles
+ *
+ * @note May make this generic, like product section for -
+ * any sidebar content
  * */
 
 import React from 'react'
@@ -8,10 +14,8 @@ import { Link } from "react-router-dom";
 
 import Wrapper from "./Wrapper";
 
-import ArticlePreview from "../../ArticlePreview";
+import ArticlePreview from "../ArticlePreview";
 import { List, ListItem, Index, Header, H3, A } from "./components";
-
-// import Articles from "../../Articles";
 
 const Popular = (props) => {
   return (
@@ -23,7 +27,7 @@ const Popular = (props) => {
       </Link>
       <List>
         {props.popular.map((article, idx) => (
-          <ListItem>
+          <ListItem key={article._id}>
             <Index>{idx+1}</Index>
             <ArticlePreview article={article} type='aside' />
           </ListItem>

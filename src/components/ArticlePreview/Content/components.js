@@ -42,12 +42,15 @@ const Details = styled.span`
   color: gray;
 `
 
-const Divider = styled.span`
-  padding: 0px 4px;
+// Global this
+const A = styled.a`
+  color: inherit!important;
+  text-decoration: none!important;
+  background-color: transparent!important;
   
-  &:after {
-    content: '\\00B7';
+  &:hover {
+    cursor: pointer;
   }
 `
 
-export { Title, Description, Meta, Author, Details, Divider }
+export { Title, Description, Meta, Author, A, Details }
