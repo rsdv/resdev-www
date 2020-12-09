@@ -11,7 +11,7 @@ const Title = styled.h2`
   font-size: 24px;
   line-height: 28px;
   font-weight: 600;
-  transform: translateT(-.72px);
+  transform: translateY(-.72px);
 `
 
 const Description = styled.div`
