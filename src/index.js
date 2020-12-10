@@ -24,6 +24,7 @@ import basename from './utils/basename';
 import App from './containers/App';
 
 // Import Providers
+import DeviceContextProvider from "./containers/DeviceProvider";
 
 // Redux store
 import store from './store';
@@ -33,10 +34,12 @@ const MOUNT_NODE = document.getElementById('root') || document.createElement('di
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Fonts />
-      <BrowserRouter basename={basename}>
-        <App store={store} />
-      </BrowserRouter>
+      <DeviceContextProvider>
+        <Fonts />
+        <BrowserRouter basename={basename}>
+          <App store={store} />
+        </BrowserRouter>
+      </DeviceContextProvider>
     </Provider>
   </React.StrictMode>,
   MOUNT_NODE

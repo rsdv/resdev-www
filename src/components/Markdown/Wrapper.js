@@ -11,6 +11,7 @@ import styled, { css } from 'styled-components'
 // subscripts/superscripts
 const Wrapper = styled.article`
   font-family: 'Lato'!important;
+  cursor: text;
   
   img {
     display: block;

@@ -8,6 +8,7 @@ import ProductPage from "../ProductPage";
 import NewsPage from "../NewsPage";
 import NotFoundPage from "../NotFoundPage";
 import ArticlePage from "../ArticlePage";
+import CategoryPage from "../CategoryPage";
 
 function App(props) {
   // Pass analytics for initialising the page
@@ -19,10 +20,14 @@ function App(props) {
     <Theme>
       <GlobalStyle />
       <Switch>
-        <Route path='/products/:slug' render={props => <ProductPage {...props} />} />
-        <Route path='/news' render={props => <NewsPage {...props} />} exact />
-        <Route path='/news/:slug' render={props => <ArticlePage {...props} />} />
-        <Route path='' component={NotFoundPage} />
+        <Route path='/' component={NotFoundPage} exact />
+        <Route path='/news' component={NewsPage} exact />
+        <Route path='/news/:slug' render={ArticlePage} />
+        <Route path='/category/:slug' component={CategoryPage} />
+        <Route path='/industry/:slug' component={NotFoundPage} />
+        <Route path='/products/:slug' render={ProductPage} />
+        <Route path='/about-us' render={NotFoundPage} />
+        <Route path='/service/:slug' component={NotFoundPage} />
       </Switch>
     </Theme>
   )

@@ -22,3 +22,33 @@ Resdev Site
     - [ ] When less than 768px should look at going vertical, or swapping photo carasel for a full width
     header ??
     - [ ] Or design one that fits
+
+### Pages/Containers
+
+#### HomePage
+
+> `http://rsdv.co.uk/`
+
+#### NewsPage
+
+> `http://rsdv.co.uk/news`
+
+#### ArticlePage
+
+> `http://rsdv.co.uk/news/:slug`
+
+#### CategoryPage
+
+> `http://rsdv.co.uk/category/:slug`
+
+#### ProductPage
+
+> `http://rsdv.co.uk/products/:slug`
+
+#### AboutUsPage
+
+> `http://rsdv.co.uk/about-us`
+
+#### ExportPage
+
+> `http://rsdv.co.uk/export`

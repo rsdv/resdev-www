@@ -18,27 +18,4 @@ const ButtonGroup = styled.div`
   justify-content: flex-start;
 `
 
-// Shared css
-const Button = styled.button`
-  font-size: 20px;
-  font-weight: ${props => props.theme.main.fontWeights.bold};
-  padding: 4px;
-  margin-right: 32px;
-  width: 170px;
-  border-radius: 4px;
-  border: 0px;
-  box-shadow: -1px 0px 4px rgba(0,0,0,0.2);
-`
-
-const HomeButton = styled(Button)`
-  background-color: ${props => props.theme.main.colors.resdev.red};
-  color: #FFF;
-`
-
-const GoBackButton = styled(Button)`
-  background-color: #FFF;
-  color: ${props => props.theme.main.colors.resdev.red};
-  border: 1px solid ${props => props.theme.main.colors.resdev.red};
-`
-
-export { Title, HomeButton, GoBackButton, ButtonGroup }
+export { Title, ButtonGroup }
