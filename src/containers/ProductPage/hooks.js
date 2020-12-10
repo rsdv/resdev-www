@@ -1,6 +1,6 @@
 /* global fetch */
 
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { HTTPError } from '../../utils/error'
 
@@ -17,6 +17,7 @@ const useFetch = ({ match: { params } }) => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://cms.localhost/products?slug=' + params.slug)
+        /* eslint-ignore-next */
         if (response.status !== 200) throw new HTTPError(`HTTPError [${response.status}]`, response.status, response.statusText)
 
         let product = await response.json()

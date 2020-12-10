@@ -10,11 +10,10 @@ import NotFoundPage from '../NotFoundPage'
 import ArticlePage from '../ArticlePage'
 import CategoryPage from '../CategoryPage'
 
+/* eslint-ignore-next */
 function App (props) {
   // Pass analytics for initialising the page
   // useEffect(() => { }, [])
-
-  console.log(window.location.origin)
 
   return (
     <Theme>
@@ -22,11 +21,11 @@ function App (props) {
       <Switch>
         <Route path='/' component={NotFoundPage} exact />
         <Route path='/news' component={NewsPage} exact />
-        <Route path='/news/:slug' render={ArticlePage} />
+        <Route path='/news/:slug' component={ArticlePage} />
         <Route path='/category/:slug' component={CategoryPage} />
         <Route path='/industry/:slug' component={NotFoundPage} />
-        <Route path='/products/:slug' render={ProductPage} />
-        <Route path='/about-us' render={NotFoundPage} />
+        <Route path='/products/:slug' component={ProductPage} />
+        <Route path='/about-us' component={NotFoundPage} />
         <Route path='/service/:slug' component={NotFoundPage} />
       </Switch>
     </Theme>

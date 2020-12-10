@@ -9,6 +9,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import useFetch from './hooks'
+
 import Wrapper from './Wrapper'
 
 import Photos from './Photos'
