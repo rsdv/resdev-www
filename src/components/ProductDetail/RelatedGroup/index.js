@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Related from "../../Related";
+import Related from '../../Related'
 
-import { Group } from "./components";
+import { Group } from './components'
 
 const RelatedGroup = (props) => (
   <Group>

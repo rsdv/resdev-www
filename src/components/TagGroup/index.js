@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Tag from "../Tag";
-import Wrapper from "./Wrapper";
+import Tag from '../Tag'
+import Wrapper from './Wrapper'
 
 // onClick isn't 100%
 //
@@ -20,7 +20,7 @@ const TagGroup = (props) => {
   return (
     <Wrapper>
       {tags.map((el, idx) => (
-        <Tag value={el} key={idx} data-value={idx} onClick={_onClick}/>
+        <Tag value={el} key={idx} data-value={idx} onClick={_onClick} />
       ))}
     </Wrapper>
   )

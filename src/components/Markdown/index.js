@@ -10,11 +10,11 @@ import 'github-markdown-css'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import marked from "marked";
+import marked from 'marked'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 
-const Markdown = ({ value, absolutePath, inline, ...rest}) => {
+const Markdown = ({ value, absolutePath, inline, ...rest }) => {
   return <Wrapper className='markdown-body' dangerouslySetInnerHTML={{ __html: marked(value, { baseUrl: absolutePath, breaks: true }) }} inline={inline} {...rest} />
 }
 

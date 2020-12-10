@@ -13,10 +13,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { WrapperDiv, WrapperArticle } from "./Wrapper";
+import { WrapperDiv, WrapperArticle } from './Wrapper'
 
-import Image from "./Image";
-import Content from "./Content";
+import Image from './Image'
+import Content from './Content'
 
 const ArticlePreview = (props) => {
   const {
@@ -30,7 +30,7 @@ const ArticlePreview = (props) => {
   return (
     <Wrapper type={type}>
       <Content description={type === 'default'} article={article} margin={margin} />
-      { type === 'default' && article.photo ? <Image src={`http://cms.localhost${article.photo.url}`} slug={article.slug}/> : null }
+      {type === 'default' && article.photo ? <Image src={`http://cms.localhost${article.photo.url}`} slug={article.slug} /> : null}
     </Wrapper>
   )
 }

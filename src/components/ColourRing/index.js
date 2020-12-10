@@ -7,9 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Circle from "./Circle";
+import Circle from './Circle'
 
-const ColourRing = ({ color, style, ...rest }) => <Circle style={{...style, backgroundColor: color}} {...rest} />
+const ColourRing = ({ color, style, ...rest }) => <Circle style={{ ...style, backgroundColor: color }} {...rest} />
 
 ColourRing.propTypes = {
   color: PropTypes.string.isRequired,

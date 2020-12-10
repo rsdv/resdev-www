@@ -6,14 +6,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactTooltip from 'react-tooltip'
 
-import ColourRing from "../../ColourRing";
+import ColourRing from '../../ColourRing'
 
-import { Group } from "./components";
+import { Group } from './components'
 
 const ColourGroup = (props) => (
   <Group>
     <ReactTooltip />
-    {props.colours.map(({colour, name}, idx) => (
+    {props.colours.map(({ colour, name }, idx) => (
       <ColourRing data-tip={name} color={colour} key={idx} />
     ))}
   </Group>

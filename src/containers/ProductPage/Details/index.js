@@ -8,15 +8,13 @@
 import React, { } from 'react'
 import PropTypes from 'prop-types'
 
-import marked from 'marked'
+import Wrapper from './Wrapper'
 
-import Wrapper from "./Wrapper";
-
-import Theme from "../../Theme";
-import Markdown from "../../../components/Markdown";
+import Theme from '../../Theme'
+import Markdown from '../../../components/Markdown'
 import { Specification, Downloads, RelatedGroup, ColourGroup, Header, Section } from '../../../components/ProductDetail'
 
-import downloadMap from "../../../utils/downloads-map";
+import downloadMap from '../../../utils/downloads-map'
 import theme, { pumaflow, pumathane, pumadur } from '../../../themes'
 
 const related = [
@@ -46,22 +44,38 @@ const Details = (props) => {
     }
   }
 
+  /**
+   * For cleaner reading pull these out
+   * */
+
+  const ColourSection = (!!colours && colours.length > 0) ? (
+    <Section title='Colours'>
+      <ColourGroup colours={colours.map((el) => ({ colour: el.colour, name: el.name }))} />
+    </Section>
+  ) : null
+
+  const SpecificationSection = (!!specification && specification.length > 0) ? (
+    <Section title='Specification'>
+      <Specification spec={specification} />
+    </Section>
+  ) : null
+
+  const DownloadSection = (!!datasheets && datasheets.length > 0) ? (
+    <Section title='Downloads'>
+      <Downloads downloads={datasheets.map(downloadMap)} />
+    </Section>
+  ) : null
+
   return (
     <Wrapper>
       <Theme value={getTheme(tags)}>
         <Header title={Title} tags={tags.map((el) => el.tag)}>
-          <Markdown dangerouslySetInnerHTML={{ __html: marked(description) }} />
+          <Markdown value={description} />
         </Header>
-        {!!colours && colours.length > 0 ? <Section title={'Colours'}>
-          <ColourGroup colours={colours.map((el) => ({ colour: el.colour, name: el.name }))} />
-        </Section> : null }
-        {!!specification && specification.length > 0 ? <Section title={"Specification"}>
-          <Specification spec={specification} />
-        </Section> : null }
-        {!!datasheets && datasheets.length > 0 ? <Section title={"Downloads"}>
-          <Downloads downloads={datasheets.map(downloadMap)} />
-        </Section> : null }
-        <Section title={"Related Products"}>
+        {ColourSection}
+        {SpecificationSection}
+        {DownloadSection}
+        <Section title='Related Products'>
           <RelatedGroup related={related} />
         </Section>
       </Theme>

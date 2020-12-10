@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 import marked from 'marked'
 
-import Markdown from "../../Markdown";
+import Markdown from '../../Markdown'
 import { List, ListItem, Content, Text } from './components'
 
 const Specification = (props) => {
@@ -20,8 +20,8 @@ const Specification = (props) => {
       {spec.map(({ key, value }, idx) => (
         <ListItem key={idx}>
           <Content>
-            <Text align={'left'}>{key}</Text>
-            <Text align={'right'}>
+            <Text align='left'>{key}</Text>
+            <Text align='right'>
               <Markdown dangerouslySetInnerHTML={{ __html: marked(value) }} />
             </Text>
           </Content>

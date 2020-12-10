@@ -10,16 +10,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 import { Twitter, LinkedIn } from './svgs'
 
-function getComponent(name) {
+function getComponent (name) {
   switch (name) {
     case 'LinkedIn':
-      return LinkedIn;
+      return LinkedIn
     case 'Twitter':
     default:
-      return Twitter;
+      return Twitter
   }
 }
 
@@ -28,10 +28,10 @@ const SocialLink = ({ name, fill, id, disabled }) => {
     window.open(`http://share.localhost/${id}&source=${name.toLowerCase()}`, '_blank')
   }
 
-  const SVG = getComponent(name)
+  const Icon = getComponent(name)
   return (
     <Wrapper aria-label={`Share on ${name.toLowerCase()}`} onClick={onClick} disabled={disabled}>
-      <SVG fill={fill} />
+      <Icon fill={fill} />
     </Wrapper>
   )
 }

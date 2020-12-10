@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 const spin = keyframes`
   0% {
@@ -7,7 +7,7 @@ const spin = keyframes`
   100% {
     transform: rotate(360deg);
   }
-`;
+`
 
 /**
  * TODO: Better theming/dark mode
@@ -27,6 +27,6 @@ const Loader = styled.div`
     border-radius: 50%;
     animation: ${spin} 2s linear infinite;
   }
-`;
+`
 
-export default Loader;
+export default Loader

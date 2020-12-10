@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 
-import Related from "../Related";
+import Related from '../Related'
 
 const RelatedGroup = (props) => {
   return (

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Photo from "../Photo";
+import Photo from '../Photo'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 
 const Related = (props) => {
   const {
@@ -14,9 +14,9 @@ const Related = (props) => {
   } = props
 
   return (
-    <Wrapper style={{...style, width: width || '150px'}} {...rest}>
+    <Wrapper style={{ ...style, width: width || '150px' }} {...rest}>
       <Photo src={product.src} />
-      <span className="related-title">{product.title}</span>
+      <span className='related-title'>{product.title}</span>
     </Wrapper>
   )
 }

@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom';
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 
-import Theme from "../Theme";
-import GlobalStyle from "../../components/GlobalStyle";
+import Theme from '../Theme'
+import GlobalStyle from '../../components/GlobalStyle'
 
-import ProductPage from "../ProductPage";
-import NewsPage from "../NewsPage";
-import NotFoundPage from "../NotFoundPage";
-import ArticlePage from "../ArticlePage";
-import CategoryPage from "../CategoryPage";
+import ProductPage from '../ProductPage'
+import NewsPage from '../NewsPage'
+import NotFoundPage from '../NotFoundPage'
+import ArticlePage from '../ArticlePage'
+import CategoryPage from '../CategoryPage'
 
-function App(props) {
+function App (props) {
   // Pass analytics for initialising the page
   // useEffect(() => { }, [])
 

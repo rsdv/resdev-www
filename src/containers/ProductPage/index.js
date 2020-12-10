@@ -8,16 +8,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import useFetch from "./hooks";
-import Wrapper from "./Wrapper";
+import useFetch from './hooks'
+import Wrapper from './Wrapper'
 
-import Photos from "./Photos";
-import Details from "./Details";
-import NotFound from "../../components/NotFound";
-import LoadingIndicatorPage from "../LoadingIndicatorPage";
+import Photos from './Photos'
+import Details from './Details'
+import NotFound from '../../components/NotFound'
+import LoadingIndicatorPage from '../LoadingIndicatorPage'
 
 const ProductPage = (props) => {
-  const { error, isLoading, product, photos } = useFetch(props);
+  const { error, isLoading, product, photos } = useFetch(props)
 
   if (isLoading) {
     return <LoadingIndicatorPage />
@@ -29,7 +29,7 @@ const ProductPage = (props) => {
 
   return (
     <Wrapper>
-      <Photos photos={photos}/>
+      <Photos photos={photos} />
       <Details product={product} />
     </Wrapper>
   )

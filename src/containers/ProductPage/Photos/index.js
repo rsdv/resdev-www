@@ -8,9 +8,9 @@
 import React, { } from 'react'
 import PropTypes from 'prop-types'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 
-import PhotoGallery from "../../../components/PhotoGallery";
+import PhotoGallery from '../../../components/PhotoGallery'
 
 const Photos = (props) => (
   <Wrapper>

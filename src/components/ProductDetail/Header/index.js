@@ -1,16 +1,16 @@
-import React, { Children, Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-import TagGroup from "../../TagGroup";
+import TagGroup from '../../TagGroup'
 
-import { Title, Description } from "./components";
+import { Title, Description } from './components'
 
 const Header = ({ tags, title, children }) => (
-  <Fragment>
-    { tags && tags.length > 0 ? <TagGroup tags={tags} /> : null }
+  <>
+    {tags && tags.length > 0 ? <TagGroup tags={tags} /> : null}
     <Title>{title}</Title>
-    {!!children ? <Description>{children}</Description> : null}
-  </Fragment>
+    {children ? <Description>{children}</Description> : null}
+  </>
 )
 
 Header.propTypes = {

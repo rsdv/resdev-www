@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
 
-import { Wrapper, Image  } from "./components";
+import { Wrapper, Image } from './components'
 
 const Photo = (props) => {
   const {
@@ -21,8 +21,8 @@ const Photo = (props) => {
 
   // Might not be right but will do for now
   return (
-    <Wrapper style={{...style}} type={type} {...rest} >
-      <Image alt={alt} className={clsx(className)} type={type} src={src} srcSet={srcSet} onClick={onClick} index={index} {...imgProps} >
+    <Wrapper style={{ ...style }} type={type} {...rest}>
+      <Image alt={alt} className={clsx(className)} type={type} src={src} srcSet={srcSet} onClick={onClick} index={index} {...imgProps}>
         {children}
       </Image>
     </Wrapper>

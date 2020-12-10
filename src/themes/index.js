@@ -1,14 +1,14 @@
-import sizes from './sizes';
-import colors from './colors';
-import fontWeights from './fontWeights';
+import sizes from './sizes'
+import colors from './colors'
+import fontWeights from './fontWeights'
 
 const theme = {
   main: {
     colors,
     fontWeights,
-    sizes,
-  },
-};
+    sizes
+  }
+}
 
 /**
  * This is probably easier, maybe colour
@@ -50,5 +50,5 @@ const pumaflow = () => ({
   }
 })
 
-export default theme;
+export default theme
 export { pumadur, pumaflow, pumathane }

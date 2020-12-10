@@ -1,4 +1,4 @@
-export { default as Section } from "./Section";
+export { default as Section } from './Section'
 export { default as Specification } from './Specification'
 export { default as Downloads } from './Downloads'
 export { default as RelatedGroup } from './RelatedGroup'

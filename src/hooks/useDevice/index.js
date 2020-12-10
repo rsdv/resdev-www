@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import DeviceContext from "../../contexts/Device";
+import { useContext } from 'react'
+import DeviceContext from '../../contexts/Device'
 
 const useDeviceContext = () => useContext(DeviceContext)
 
-export default useDeviceContext;
+export default useDeviceContext

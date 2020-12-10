@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 import PropTypes from 'prop-types'
 
-import DeviceContext from "../../contexts/Device";
+import DeviceContext from '../../contexts/Device'
 
 // The value is defaulted and cannot be changed
 const DeviceContextProvider = ({ children }) => {
@@ -40,4 +40,4 @@ DeviceContextProvider.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default DeviceContextProvider;
+export default DeviceContextProvider

@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+/* global fetch */
+
+import { useEffect, useRef, useState } from 'react'
 
 import { HTTPError } from '../../utils/error'
 
 const useFetch = ({ match: { params } }) => {
-  const isMounted = useRef(true);
+  const isMounted = useRef(true)
   const [state, setState] = useState({
     error: false,
     isLoading: true,
@@ -43,19 +45,19 @@ const useFetch = ({ match: { params } }) => {
         setState({ isLoading: false, product, photos, error: false })
       } catch (err) {
         if (isMounted.current) {
-          setState({ isLoading: false, error: true, product: null, photos: [] });
+          setState({ isLoading: false, error: true, product: null, photos: [] })
         }
       }
     }
 
-    fetchData();
+    fetchData()
 
     return () => {
-      isMounted.current = false;
-    };
+      isMounted.current = false
+    }
   }, [params])
 
-  return state;
+  return state
 }
 
-export default useFetch;
+export default useFetch

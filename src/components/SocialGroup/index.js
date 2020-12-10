@@ -10,8 +10,8 @@ import PropTypes from 'prop-types'
 
 import { Social } from '../Icons'
 
-import Content from "./Content";
-import Wrapper from "./Wrapper";
+import Content from './Content'
+import Wrapper from './Wrapper'
 
 const SocialGroup = (props) => (
   <Wrapper>

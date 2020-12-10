@@ -4,9 +4,9 @@
  *
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import Loader from './Loader';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Loader from './Loader'
 
 const LoadingIndicatorPage = props => {
   if (props.error) {
@@ -19,22 +19,22 @@ const LoadingIndicatorPage = props => {
           {props.error.stack}
         </details>
       </div>
-    );
+    )
   }
 
   return (
     <Loader>
       <div />
     </Loader>
-  );
-};
+  )
+}
 
 LoadingIndicatorPage.defaultProps = {
-  error: null,
-};
+  error: null
+}
 
 LoadingIndicatorPage.propTypes = {
-  error: PropTypes.object,
-};
+  error: PropTypes.object
+}
 
-export default LoadingIndicatorPage;
+export default LoadingIndicatorPage

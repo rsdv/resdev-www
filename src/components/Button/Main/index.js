@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Component from "./Button";
+import Component from './Button'
 
 const Button = (props) => <Component {...props} />
 

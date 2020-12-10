@@ -9,18 +9,18 @@
  * */
 
 import React from 'react'
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 
-import ArticlePreview from "../ArticlePreview";
-import { List, ListItem, Index, Header, H3, A } from "./components";
+import ArticlePreview from '../ArticlePreview'
+import { List, ListItem, Index, Header, H3, A } from './components'
 
 const Popular = (props) => {
   return (
     <Wrapper>
-      <Link to={'/topic/popular'} component={A}>
+      <Link to='/topic/popular' component={A}>
         <Header>
           <H3>Popular</H3>
         </Header>
@@ -28,7 +28,7 @@ const Popular = (props) => {
       <List>
         {props.popular.map((article, idx) => (
           <ListItem key={article._id}>
-            <Index>{idx+1}</Index>
+            <Index>{idx + 1}</Index>
             <ArticlePreview article={article} type='aside' />
           </ListItem>
         ))}

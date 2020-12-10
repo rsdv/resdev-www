@@ -8,16 +8,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import useFetch from "./hooks";
+import useFetch from './hooks'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 import { Sidebar, Content } from './Content'
 
-import LoadingIndicatorPage from "../LoadingIndicatorPage";
+import LoadingIndicatorPage from '../LoadingIndicatorPage'
 
-import Popular from "../../components/Popular";
-import Articles from "../../components/Articles";
-import NotFound from "../../components/NotFound";
+import Popular from '../../components/Popular'
+import Articles from '../../components/Articles'
+import NotFound from '../../components/NotFound'
 
 const NewsPage = (props) => {
   const { error, isLoading, popular } = useFetch()

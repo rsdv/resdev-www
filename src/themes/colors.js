@@ -34,12 +34,12 @@ const colors = {
   darkBlue: '#AED4FB',
   content: {
     background: '#fafafb',
-    'background-alpha': 'rgba(14, 22, 34, 0.02)',
+    'background-alpha': 'rgba(14, 22, 34, 0.02)'
   },
   leftMenu: {
     'link-hover': '#1c2431',
     'link-color': '#919bae',
-    'title-color': '#5b626f',
+    'title-color': '#5b626f'
   },
   text: {
     primary: '#4A4A4A',
@@ -53,7 +53,7 @@ const colors = {
     red: '#E43B32',
     'red-light': '#E9625B',
     'red-lighter': '#F9D7D6'
-  },
-};
+  }
+}
 
-export default colors;
+export default colors

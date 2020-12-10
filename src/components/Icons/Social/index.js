@@ -9,7 +9,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SocialLink from "./SocialLink";
+import SocialLink from './SocialLink'
 
 const Social = ({ name, fill, id, disabled }) =>
   <SocialLink name={name} fill={fill} id={id} disabled={disabled} />

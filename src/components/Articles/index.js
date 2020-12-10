@@ -5,27 +5,32 @@
  * and display them with a infinite scrolling
  * */
 
+/* global fetch IntersectionObserver */
+
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 
-import ArticlePreview from "../ArticlePreview";
+import ArticlePreview from '../ArticlePreview'
 
 const PAGE_LIMIT = 10
 
 export default class Articles extends Component {
+  constructor (props) {
+    super(props)
 
-  state = {
-    loading: true,
-    infinite: true,
-    articles: [],
-    error: false,
-    page: 0,
-    prevY: 0
+    this.state = {
+      loading: true,
+      infinite: true,
+      articles: [],
+      error: false,
+      page: 0,
+      prevY: 0
+    }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     /* istanbul-ignore-next */
     this.getArticles(this.state.page)
 
@@ -38,24 +43,24 @@ export default class Articles extends Component {
     this.observer = new IntersectionObserver(
       this.handleObserver.bind(this),
       options
-    );
-    this.observer.observe(this.loadingRef);
+    )
+    this.observer.observe(this.loadingRef)
   }
 
-  handleObserver(entities, observer) {
+  handleObserver (entities, observer) {
     const y = entities[0].boundingClientRect.y
     if (this.state.prevY > y) {
       const currentPage = this.state.page
       this.getArticles(currentPage + 1)
       this.setState({ page: currentPage + 1 })
     }
-    this.setState({ prevY: y });
+    this.setState({ prevY: y })
   }
 
   /**
    * Handle the loading of the articles
    * */
-  async getArticles(page) {
+  async getArticles (page) {
     // Once the component is full no need to load more
     if (!this.state.infinite) return
 
@@ -89,8 +94,8 @@ export default class Articles extends Component {
     }
   }
 
-  render() {
-    const loadingTextCSS = { display: this.state.loading ? "block" : "none" };
+  render () {
+    const loadingTextCSS = { display: this.state.loading ? 'block' : 'none' }
 
     return (
       <Wrapper>

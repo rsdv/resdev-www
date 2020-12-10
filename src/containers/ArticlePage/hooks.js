@@ -2,12 +2,14 @@
  * Fetch the article info
  * */
 
-import { useEffect, useRef, useState } from 'react';
+/* global fetch */
+
+import { useEffect, useRef, useState } from 'react'
 
 import { HTTPError } from '../../utils/error'
 
 const useFetch = ({ match: { params } }) => {
-  const isMounted = useRef(true);
+  const isMounted = useRef(true)
   const [state, setState] = useState({
     error: false,
     isLoading: true,
@@ -20,7 +22,7 @@ const useFetch = ({ match: { params } }) => {
         const response = await fetch('http://cms.localhost/articles?slug=' + params.slug)
         if (response.status !== 200) throw new HTTPError(`HTTPError [${response.status}]`, response.status, response.statusText)
 
-        let data = await response.json()
+        const data = await response.json()
 
         // Overkill but just in-case we do get more than one
         //
@@ -43,24 +45,24 @@ const useFetch = ({ match: { params } }) => {
         }, [])
 
         const article = articles[0]
-        if (!article) return setState({ isLoading: false, error: true, article: null });
+        if (!article) return setState({ isLoading: false, error: true, article: null })
 
         setState({ isLoading: false, article, error: false })
       } catch (err) {
         if (isMounted.current) {
-          setState({ isLoading: false, error: true, article: null });
+          setState({ isLoading: false, error: true, article: null })
         }
       }
     }
 
-    fetchData();
+    fetchData()
 
     return () => {
-      isMounted.current = false;
-    };
+      isMounted.current = false
+    }
   }, [params])
 
-  return state;
+  return state
 }
 
-export default useFetch;
+export default useFetch

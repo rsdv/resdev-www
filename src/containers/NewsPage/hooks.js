@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+/* global fetch */
+
+import { useEffect, useRef, useState } from 'react'
 
 import { HTTPError } from '../../utils/error'
 
 const useFetch = () => {
-  const isMounted = useRef(true);
+  const isMounted = useRef(true)
   const [state, setState] = useState({
     error: false,
     isLoading: true,
@@ -13,7 +15,7 @@ const useFetch = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let response = await fetch('http://cms.localhost/news-page')
+        const response = await fetch('http://cms.localhost/news-page')
         if (response.status !== 200) throw new HTTPError(`HTTPError [${response.status}]`, response.status, response.statusText)
 
         const data = await response.json()
@@ -36,19 +38,19 @@ const useFetch = () => {
         setState({ isLoading: false, popular: articles, error: false })
       } catch (err) {
         if (isMounted.current) {
-          setState({ isLoading: false, error: true, popular: [] });
+          setState({ isLoading: false, error: true, popular: [] })
         }
       }
     }
 
-    fetchData();
+    fetchData()
 
     return () => {
-      isMounted.current = false;
-    };
+      isMounted.current = false
+    }
   }, [])
 
-  return state;
+  return state
 }
 
-export default useFetch;
+export default useFetch

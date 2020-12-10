@@ -9,7 +9,7 @@ const Wrapper = styled.div`
  
   ${props => props.type === 'fixed-width' ? css`
     height: 100%;
-  ` : null }
+  ` : null}
 `
 
 const Image = styled.img`

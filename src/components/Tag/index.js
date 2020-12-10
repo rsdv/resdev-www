@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Wrapper } from "./components";
+import { Wrapper } from './components'
 
 /**
  * May become a link??
  *
  * So add a hover
  * */
-const Tag = ({ value })  => (
+const Tag = ({ value }) => (
   <Wrapper>
     {value}
   </Wrapper>

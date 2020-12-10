@@ -7,16 +7,16 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 
-import Photo from "../../Photo";
+import Photo from '../../Photo'
 
 const Image = (props) => (
   <Wrapper>
     <Link to={`/news/${props.slug}`}>
-      <Photo type="fixed-width" src={props.src} alt={props.alt} />
+      <Photo type='fixed-width' src={props.src} alt={props.alt} />
     </Link>
   </Wrapper>
 )

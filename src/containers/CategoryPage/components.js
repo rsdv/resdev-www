@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { H3 } from '../../components/Headers'
+
 const Banner = styled.div`
   width: 100%;
   box-shadow: 0px 2px 3px rgba(0,0,0,.2);
@@ -41,4 +43,9 @@ const Related = styled.div`
   max-width: ${props => props.theme.main.sizes.width.md}
 `
 
-export { Banner, Content, Related }
+const RelatedTitle = styled(H3)`
+  margin-bottom: 32px;
+  text-align: center;
+`
+
+export { Banner, Content, Related, RelatedTitle }

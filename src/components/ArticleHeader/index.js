@@ -7,13 +7,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Wrapper from "./Wrapper";
+import Wrapper from './Wrapper'
 import { H1, Description, MetaGroup, Meta, Author, Details, Socials } from './components'
 
-import Time from "../Time";
-import ReadTime from "../ReadTime";
-import DotDivider from "../DotDivider";
-import SocialGroup from "../SocialGroup";
+import Time from '../Time'
+import ReadTime from '../ReadTime'
+import DotDivider from '../DotDivider'
+import SocialGroup from '../SocialGroup'
 
 const ArticleHeader = (props) => {
   return (
@@ -28,7 +28,7 @@ const ArticleHeader = (props) => {
           </Details>
         </Meta>
         <Socials>
-          <SocialGroup socials={["Twitter", "LinkedIn"]} id={props.article._id} />
+          <SocialGroup socials={['Twitter', 'LinkedIn']} id={props.article._id} />
         </Socials>
       </MetaGroup>
     </Wrapper>

@@ -33,7 +33,7 @@ const Wrapper = styled.article`
     p:last-child {
       padding-bottom: 0px;
     }
-  ` : null }
+  ` : null}
   
 `
 

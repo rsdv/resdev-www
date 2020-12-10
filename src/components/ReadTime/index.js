@@ -5,8 +5,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Content from "./Content";
-import ReactTooltip from "react-tooltip";
+import Content from './Content'
+import ReactTooltip from 'react-tooltip'
 
 const WPM = 200
 const calculator = (count) => count <= WPM ? 1 : Math.floor(count / WPM)

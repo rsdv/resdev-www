@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   
   ${props => props.margin ? css`
     margin-right: 24px;
-  ` : null }
+  ` : null}
 `
 
 export default Wrapper

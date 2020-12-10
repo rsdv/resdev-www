@@ -11,19 +11,19 @@ dayjs.extend(updateLocale)
 // Capitalise
 dayjs.updateLocale('en', {
   relativeTime: {
-    future: "In %s",
-    past: "%s ago",
+    future: 'In %s',
+    past: '%s ago',
     s: 'A few seconds',
-    m: "A minute",
-    mm: "%d minutes",
-    h: "An hour",
-    hh: "%d hours",
-    d: "A day",
-    dd: "%d days",
-    M: "A month",
-    MM: "%d months",
-    y: "A year",
-    yy: "%d years"
+    m: 'A minute',
+    mm: '%d minutes',
+    h: 'An hour',
+    hh: '%d hours',
+    d: 'A day',
+    dd: '%d days',
+    M: 'A month',
+    MM: '%d months',
+    y: 'A year',
+    yy: '%d years'
   }
 })
 
