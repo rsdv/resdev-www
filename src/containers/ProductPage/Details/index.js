@@ -10,12 +10,10 @@ import PropTypes from 'prop-types'
 
 import Wrapper from './Wrapper'
 
-import Theme from '../../Theme'
 import Markdown from '../../../components/Markdown'
 import { Specification, Downloads, RelatedGroup, ColourGroup, Header, Section } from '../../../components/ProductDetail'
 
 import downloadMap from '../../../utils/downloads-map'
-import theme, { pumaflow, pumathane, pumadur } from '../../../themes'
 
 const related = [
   { src: 'https://www.atrafloor.com/app/uploads/2018/05/orange-flicks-terrazzo-Swatch-Website.jpg', title: 'Product Name' },
@@ -31,18 +29,6 @@ const Details = (props) => {
     specification,
     datasheets
   } = props.product
-
-  // Pretty shit but maybe works
-  const getTheme = (tags) => {
-    const keys = ['Pumadur', 'Pumathane', 'Pumaflow']
-
-    switch (tags[tags.findIndex((el) => keys.indexOf(el.tag.toLowerCase()))].tag) {
-      case 'Pumadur': return pumadur()
-      case 'Pumathane': return pumathane()
-      case 'Pumaflow': return pumaflow()
-      default: return theme
-    }
-  }
 
   /**
    * For cleaner reading pull these out
@@ -66,19 +52,20 @@ const Details = (props) => {
     </Section>
   ) : null
 
+  const keys = ['Pumadur', 'Pumathane', 'Pumaflow']
+  const tag = tags[tags.findIndex((el) => keys.indexOf(el.tag.toLowerCase()))].tag
+
   return (
     <Wrapper>
-      <Theme value={getTheme(tags)}>
-        <Header title={Title} tags={tags.map((el) => el.tag)}>
-          <Markdown value={description} />
-        </Header>
-        {ColourSection}
-        {SpecificationSection}
-        {DownloadSection}
-        <Section title='Related Products'>
-          <RelatedGroup related={related} />
-        </Section>
-      </Theme>
+      <Header tag={tag} title={Title} tags={tags.map((el) => el.tag)}>
+        {!!description ? <Markdown value={description} style={{ fontSize: 'inherit' }} /> : (<></>)}
+      </Header>
+      {ColourSection}
+      {SpecificationSection}
+      {DownloadSection}
+      <Section title='Related Products'>
+        <RelatedGroup related={related} />
+      </Section>
     </Wrapper>
   )
 }

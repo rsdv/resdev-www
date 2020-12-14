@@ -36,7 +36,7 @@ const Selector = styled.div`
     cursor: default;
     opacity: 0.5;
     border: 0.5px solid #979797;
-    box-shadow: initial !important;
+    box-shadow: ${props => props.theme.main.misc.shadow.focus};
   }
 `
 

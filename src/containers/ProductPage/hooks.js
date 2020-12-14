@@ -32,14 +32,17 @@ const useFetch = ({ match: { params } }) => {
         // Return for a 404 page
         if (!product) return setState({ isLoading: false, error: true, product: null, photos: [] })
 
+        let count = 1;
         // Overwrite the photos object to be more React friendly
         const photos = product.photos.reduce((photos, curr) => {
           photos.push({
             _id: curr._id,
             alt: curr.alternativeText,
             src: `http://cms.localhost${curr.url}`
+            // src: `https://picsum.photos/id/${count}/400/400`
           })
 
+          count *= 5
           return photos
         }, [])
 

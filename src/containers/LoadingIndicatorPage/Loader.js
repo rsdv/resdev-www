@@ -22,8 +22,8 @@ const Loader = styled.div`
     margin: auto;
     width: 50px;
     height: 50px;
-    border: 6px solid #f3f3f3; /* Light grey */
-    border-top: 6px solid ${props => props.theme.main.colors.resdev.red}; /* Red */
+    border: 6px solid ${props => props.theme.main.colors.border.gray};
+    border-top: 6px solid ${props => props.theme.main.colors.border.red};
     border-radius: 50%;
     animation: ${spin} 2s linear infinite;
   }

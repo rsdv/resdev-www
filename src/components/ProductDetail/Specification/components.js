@@ -25,16 +25,16 @@ const Content = styled.div`
 
 const Text = styled.div`
   margin: 0 auto;
-  color: ${props => props.theme.main.colors.text.primary};
+  color: ${props => props.theme.main.colors.text.gray};
   
   ${({ align }) => align === 'right'
     ? css`
-      font-weight: ${props => props.theme.main.fontWeights.semiBold};
+      font-weight: ${props => props.theme.main.typography.fontWeights.semiBold};
       text-align: right;
       width: 30%;
     `
     : css`
-      font-weight: ${props => props.theme.main.fontWeights.bold};
+      font-weight: ${props => props.theme.main.typography.fontWeights.bold};
       text-align: left;
       width: 70%;
     `

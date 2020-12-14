@@ -20,10 +20,10 @@ const Image = styled.img`
   right: 0;
   pointer-events: all;
   object-fit: fill;
-  border-radius: 4px;
+  border-radius: ${props => props.theme.main.misc.radius.default};
   width: 100%;
   height: 100%;
-  box-shadow: -1px 0px 4px rgba(0,0,0,0.2);
+  box-shadow: ${props => props.theme.main.misc.shadow.large};
 `
 
 export { Wrapper, Image }

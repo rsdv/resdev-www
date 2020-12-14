@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 const Content = styled.div`
   display: flex;
+  align-items: center;
   width: 100%;
-  padding-bottom: 8px;
+  padding-bottom: ${props => props.theme.main.sizes.spacing['space-2']};
   
   &:last-child {
     padding-bottom: 0;
@@ -11,11 +12,10 @@ const Content = styled.div`
 `
 
 const Label = styled.span`
-  line-height: 40px;
-  padding-left: 8px;
-  font-size: 12px;
-  font-weight: ${props => props.theme.main.fontWeights.bold};
-  color: ${props => props.theme.main.colors.text.primary};
+  line-height: ${props => props.theme.main.typography.lineHeights.condensed};
+  padding-left: ${props => props.theme.main.sizes.spacing['space-2']};
+  font-weight: ${props => props.theme.main.typography.fontWeights.bold};
+  color: ${props => props.theme.main.colors.text.gray};
 `
 
 export { Content, Label }

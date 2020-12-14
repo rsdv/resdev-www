@@ -1,21 +1,22 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { H3 } from '../../components/Headers'
 
 const Banner = styled.div`
   width: 100%;
   box-shadow: 0px 2px 3px rgba(0,0,0,.2);
-  margin-bottom: 32px;
-  left: 0;
-  right: 0;
-  top: 0;
+  height: 50vh;
+  color: grey;
+  margin: 0 0 32px 0;
   
-  > img {
-    height: auto;
-    max-width: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  ${props => !!props.img ? css`
+    background-image: url("${props.img}");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  ` : null }
 `
 
 const Content = styled.div`

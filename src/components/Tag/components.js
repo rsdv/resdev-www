@@ -8,10 +8,10 @@ const Wrapper = styled.div`
   border-radius: 4px;
   background-color: #E4E4E4;
   text-align: center;
-  color: ${props => props.theme.main.colors.text.primary};
+  color: ${props => props.theme.main.colors.text.gray};
   font-size: 12px;
-  font-weight: ${props => props.theme.main.fontWeights.semiBold};
-  box-shadow: -1px 0px 2px rgba(0,0,0,0.2);
+  font-weight: ${props => props.theme.main.typography.fontWeights.semiBold};
+  box-shadow: ${props => props.theme.main.misc.shadow.medium};
 `
 
 export { Wrapper }

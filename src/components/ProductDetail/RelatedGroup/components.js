@@ -5,7 +5,7 @@ const Group = styled.div`
   display: flex;
   
   > div {
-    margin-right: 16px;
+    margin-right: ${props => props.theme.main.sizes.spacing['space-3']};
   }
   
   > div:last-child {

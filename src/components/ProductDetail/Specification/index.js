@@ -22,7 +22,7 @@ const Specification = (props) => {
           <Content>
             <Text align='left'>{key}</Text>
             <Text align='right'>
-              <Markdown dangerouslySetInnerHTML={{ __html: marked(value) }} />
+              <Markdown value={value} inline={true} style={{ fontSize: 'inherit' }} />
             </Text>
           </Content>
         </ListItem>

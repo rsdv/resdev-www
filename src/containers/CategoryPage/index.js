@@ -20,9 +20,7 @@ const CategoryPage = () => {
 
   return (
     <>
-      <Banner>
-        <img src={`https://picsum.photos/${width}/400`} alt='banner' />
-      </Banner>
+      <Banner img={`https://picsum.photos/${width}/1000`} />
       <Content>
         <H2>Pumaflor Epoxy Flooring</H2>
         <Markdown style={{ fontSize: '18px' }} value={fakeText} />
