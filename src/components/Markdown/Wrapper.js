@@ -10,16 +10,14 @@ import styled, { css } from 'styled-components'
 // Just overwrite any default styles in here, mostly here for links and
 // subscripts/superscripts
 const Wrapper = styled.article`
-  font-family: 'Lato'!important;
+  font-family: ${props => props.theme.main.typography["body-font"]};
   cursor: text;
   
   img {
     display: block;
-    margin: 32px auto;
-    border-radius: 4px;
-    // width: 100%;
-    // height: 100%;
-    box-shadow: -1px 0px 4px rgba(0,0,0,0.2);
+    margin: ${props => props.theme.main.sizes.spacing['space-5']} auto;
+    border-radius: ${props => props.theme.main.misc.radius.default};
+    box-shadow: ${props => props.theme.main.misc.shadow["extra-large"]};
     
     transition: opacity 400ms ease 0ms;
   }

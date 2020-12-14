@@ -29,19 +29,21 @@ const GlobalStyle = createGlobalStyle`
   //   line-height: 1.15;
   //   margin: 0;
   // }
-  //
+  
   a, a:hover {
     color: inherit;
     background-color: transparent;
     text-decoration: none;
   }
   
-  
+  // Have these here so can be used anywhere without a component
   ${props => Object.keys(props.theme.main.sizes.breakpoints).map((bp) => css`
     .container-${bp} {
       max-width: ${props.theme.main.sizes.containers[bp]};
       margin-right: auto;
       margin-left: auto;
+      // Overwrite the bootstrap padding
+      padding: 0;
     }
   `)}
 `

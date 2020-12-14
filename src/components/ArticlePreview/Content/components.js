@@ -8,9 +8,9 @@ const Title = styled.h2`
   max-height: 64px;
   text-overflow: ellipsis;
   
-  font-size: 24px;
+  font-size: ${props => props.theme.main.typography.headers.h2};
   line-height: 28px;
-  font-weight: 600;
+  font-weight: ${props => props.theme.main.typography.fontWeights.bold};
   transform: translateY(-.72px);
 `
 
@@ -21,33 +21,29 @@ const Description = styled.div`
   -webkit-box-orient: vertical;
   max-height: 40px;
   text-overflow: ellipsis;
-  
-  font-size: 16px;
-  line-height: 20px;
+
+  line-height ${props => props.theme.main.typography.lineHeights["default"]};
   transform: translateY(1.52px);
-  color: gray;
+  color: ${props => props.theme.main.colors.text["gray-light"]};
 `
 
 const Meta = styled.div`
   margin-top: 8px;
-  font-size: 14px;
+  font-size: ${props => props.theme.main.typography["font-size-small"]};
 `
 
 const Author = styled.div`
-  
+  color: ${props => props.theme.main.colors.text.gray};
+  font-weight: ${props => props.theme.main.typography.fontWeights.semiBold};
 `
 
 const Details = styled.span`
   white-space: nowrap!important;
-  color: gray;
+  color: ${props => props.theme.main.colors.text["gray-light"]};
 `
 
 // Global this
 const A = styled.a`
-  color: inherit!important;
-  text-decoration: none!important;
-  background-color: transparent!important;
-  
   &:hover {
     cursor: pointer;
   }

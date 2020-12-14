@@ -5,20 +5,20 @@
 import styled from 'styled-components'
 
 const Content = styled.div`
-  width: ${props => props.theme.main.sizes.columns['col-8']};
-  padding-right: 32px;
+  min-width: ${props => props.theme.main.sizes.columns['col-8']};
   
-  // @media (min-width: ${props => props.theme.main.sizes.width.sm}) {
-  //   width: ${props => props.theme.main.sizes.columns['col-7']};
-  // }
+  @media (min-width: ${props => props.theme.main.sizes.breakpoints.md}) {
+    padding-right: 32px;
+  }
 `
 
 const Sidebar = styled.div`
-  width: ${props => props.theme.main.sizes.columns['col-4']};
+  max-width: ${props => props.theme.main.sizes.columns['col-4']};
+  display: none;
   
-  // @media (min-width: ${props => props.theme.main.sizes.width.sm}) {
-  //   width: ${props => props.theme.main.sizes.columns['col-5']};
-  // }
+  @media (min-width: ${props => props.theme.main.sizes.breakpoints.md}) {
+    display: block;
+  }
 `
 
 export { Content, Sidebar }

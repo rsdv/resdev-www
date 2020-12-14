@@ -32,11 +32,11 @@ const NewsPage = (props) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper className='container-lg'>
       <Content>
         <Articles />
       </Content>
-      <Sidebar>
+      <Sidebar >
         <Popular popular={popular} />
       </Sidebar>
     </Wrapper>

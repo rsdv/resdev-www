@@ -6,7 +6,9 @@ const Wrapper = styled.div`
   min-width: 0px;
   
   ${props => props.margin ? css`
-    margin-right: 24px;
+    @media (min-width: ${props => props.theme.main.sizes.breakpoints.md}) {
+      margin-right: 24px;
+    }
   ` : null}
 `
 

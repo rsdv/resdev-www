@@ -18,9 +18,9 @@ const ArticlePage = (props) => {
   if (error) return <NotFound history={props.history} />
 
   return (
-    <Wrapper>
+    <Wrapper className='container-md'>
       <ArticleHeader article={article} />
-      <Markdown value={article.article} absolutePath='http://cms.localhost' style={{ fontSize: '20px' }} />
+      <Markdown value={article.article} absolutePath='http://cms.localhost' />
     </Wrapper>
   )
 }

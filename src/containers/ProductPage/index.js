@@ -29,7 +29,7 @@ const ProductPage = (props) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper className='container-lg'>
       <Photos photos={photos} />
       <Details product={product} />
     </Wrapper>
